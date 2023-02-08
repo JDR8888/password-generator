@@ -11,35 +11,35 @@ function writePassword() {
 }
 
 function generatePassword() {
+    let acceptableLength = Math.floor(Math.random() * (129-8) + 8); //picks random int between 8 and 128 to autopopulate if the user doesn't input a number
+    var passwordLength = Number(prompt("how long you want your password? between 8 and 128 characters please", acceptableLength));
+    let criteria = (passwordLength < 129 && passwordLength >=8);
+    if(!criteria) { //if the user doesn't put in an acceptable length, i will reset passwordLength variable back to a random int between 8 and 128
+        passwordLength = acceptableLength;
+        alert('you failed at picking a number that matches criteria so we stepped in and handled it for you, mmmkay?');
+    }
     var charList = "" //initiates string for our character set
     var password = ""; // initaiates string for building our random password
     if(window.confirm('do you want lowercase letters?')) {
-        charList = charList + "abcdefghijklmnopqrstuvwxyz";}
-    
+        charList = charList + "abcdefghijklmnopqrstuvwxyz";} //adds all lowercase characters to our empty string if yes
     if(window.confirm('do you want uppercase letters?')) {
         charList = charList + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";}
-    
+    // adds all uppercase characters to our string if yes
     if(window.confirm('do you want numnums??')) {
         charList = charList + "1234567890";}  
-    
+    // adds all numnums to our string if yes
     if(window.confirm('do you want special characters?')) {
-        charList = charList + "!@#$%^&*()";}
+        charList = charList + "!@#$%^&*()";} //adds spec char to string if yes. next, need to set a for loop to iterate # of times based on password length results, so can do for loop (let i=0; i<=passwordLength; i++) and for every iteration, will generate a random number between 0 and length of charList-1 to take charList[i] and append to password, so password += charList[i] and then when the loop is finished, we should have our full password and we will return it.
+        var nextChar;
+        for (let i = 0; i <= passwordLength; i++) {
+            nextChar = Math.floor(Math.random() *(charList.length - 0));
+            password = password + charList[nextChar];
+            console.log(nextChar);
+            console.log(password);
+    }
     
-
-
-    /*if(window.confirm('do you want uppercase letters?')) {
-            charList charList + "";}
-
-    if(window.confirm('do you want numbers?')) {
-        charList = charList + "1234567890";}
-    
-    if(window.confirm('do you want special characters?')) {
-                    charList = charList + ""; } */
-
-
-    return charList;
+    return password;
 } 
-
 
 generateBtn.addEventListener("click", writePassword);
     
