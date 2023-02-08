@@ -11,11 +11,38 @@ function writePassword() {
 }
 
 function generatePassword() {
-  return 'string with stuff in it';
-}
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+    var charList = "" //initiates string for our character set
+    var password = ""; // initaiates string for building our random password
+    if(window.confirm('do you want lowercase letters?')) {
+        charList = charList + "abcdefghijklmnopqrstuvwxyz";}
+    
+    if(window.confirm('do you want uppercase letters?')) {
+        charList = charList + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";}
+    
+    if(window.confirm('do you want numnums??')) {
+        charList = charList + "1234567890";}  
+    
+    if(window.confirm('do you want special characters?')) {
+        charList = charList + "!@#$%^&*()";}
+    
 
+
+    /*if(window.confirm('do you want uppercase letters?')) {
+            charList charList + "";}
+
+    if(window.confirm('do you want numbers?')) {
+        charList = charList + "1234567890";}
+    
+    if(window.confirm('do you want special characters?')) {
+                    charList = charList + ""; } */
+
+
+    return charList;
+} 
+
+
+generateBtn.addEventListener("click", writePassword);
+    
 
 /* var password = document.getElementById("password");
 
