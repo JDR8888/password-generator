@@ -41,7 +41,7 @@ function generatePassword() {
 
     let acceptableLength = Math.floor(Math.random() * (129-8) + 8); //picks random int between 8 and 128 to autopopulate if the user doesn't input a number. this will only be needed if the user does not pick an appropriate length. 
     var passwordLength = Number(prompt("How long would you like your password? Between 8 and 128 characters please. We can pick a length for you if you don't feel like it or if you forget how numbers work.", acceptableLength));
-        var criteria = (passwordLength < 129 && passwordLength >=8);
+    var criteria = (passwordLength < 129 && passwordLength >=8);
 
 //if the user doesn't put in an acceptable length, the function will reset passwordLength variable back to a random int between 8 and 128
     if(!criteria) { 
@@ -49,7 +49,7 @@ function generatePassword() {
         alert('Wow. You failed to pick a number that matches criteria but we stepped in and handled it for you, mmmkay?'); }
 
         var nextChar; // initialize variable to hold the index # of character list to pick from for each new character being added to the password. next - the for loop will iterate # of times equal to the length that we need our password to be (i.e. an iteration to place a random character in every single index of the password) 
-        for (var i = 0; i <= passwordLength; i++) {
+        for (var i = 0; i < passwordLength; i++) {
             nextChar = Math.floor(Math.random() *(charList.length - 0)); 
             password = password + charList[nextChar];
     }
